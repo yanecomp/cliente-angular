@@ -1,0 +1,16 @@
+<mat-card>
+  <mat-card-title>Realizar saque</mat-card-title>
+  <form>
+    <mat-form-field>
+      <input matInput placeholder="Valor (R$)"
+       class="valor" id="valor" #valor>
+    </mat-form-field>
+  </form>
+  <button mat-raised-button (click)="sacar()" color="primary">
+    Salvar
+  </button>
+  
+  <button mat-raised-button (click)="cancelar()">
+    Cancelar
+  </button>
+</mat-card>

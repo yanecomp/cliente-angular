@@ -1,0 +1,47 @@
+<div class="mat-elevation-z4">
+  <mat-table #table [dataSource]="contas">
+    <!-- Coluna Conta -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef>Conta</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.conta }}</mat-cell>
+    </ng-container>
+
+    <!-- Coluna Nome -->
+    <ng-container matColumnDef="nome">
+      <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.nome }}</mat-cell>
+    </ng-container>
+
+    <!-- Coluna CPF -->
+    <ng-container matColumnDef="cpf">
+      <mat-header-cell *matHeaderCellDef>CPF</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.cpf }}</mat-cell>
+    </ng-container>
+
+    <!-- Coluna Saldo -->
+    <ng-container matColumnDef="saldo">
+      <mat-header-cell *matHeaderCellDef>Saldo</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row.saldo | currency: 'BRL' }}</mat-cell>
+    </ng-container>
+
+    <!-- Coluna Saldo -->
+    <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef>Ações</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <a routerLink="/conta/deposito/{{ row.id }}">
+          <i class="material-icons deposito" title="Realizar depósito">
+            add_circle
+          </i>
+        </a>
+        <a routerLink="/conta/saque/{{ row.id }}">
+          <i class="material-icons saque" title="Realizar saque">
+            remove_circle
+          </i>
+        </a>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+</div>
